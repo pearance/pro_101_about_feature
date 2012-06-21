@@ -110,7 +110,7 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['realname']['empty_zero'] = 0;
   $handler->display->display_options['fields']['realname']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['realname']['link_to_user'] = 1;
-  /* Field: Field: Title */
+  /* Field: User: Title */
   $handler->display->display_options['fields']['field_title']['id'] = 'field_title';
   $handler->display->display_options['fields']['field_title']['table'] = 'field_data_field_title';
   $handler->display->display_options['fields']['field_title']['field'] = 'field_title';
