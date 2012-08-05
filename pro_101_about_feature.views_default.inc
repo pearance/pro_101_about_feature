@@ -12,7 +12,7 @@ function pro_101_about_feature_views_default_views() {
 
   $view = new view;
   $view->name = 'Professionals';
-  $view->description = 'List all users with the role: professional.';
+  $view->description = 'Views involving professional profile information.';
   $view->tag = 'default';
   $view->base_table = 'users';
   $view->human_name = 'Professionals';
@@ -22,7 +22,6 @@ function pro_101_about_feature_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'About the Author';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -180,9 +179,10 @@ function pro_101_about_feature_views_default_views() {
 
   /* Display: Pro Team */
   $handler = $view->new_display('block', 'Pro Team', 'pro_team_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
 
-  /* Display: Author About */
-  $handler = $view->new_display('block', 'Author About', 'about_author_block');
+  /* Display: About Author */
+  $handler = $view->new_display('block', 'About Author', 'about_author_block');
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Content authored */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
