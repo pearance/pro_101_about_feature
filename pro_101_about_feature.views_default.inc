@@ -183,6 +183,8 @@ function pro_101_about_feature_views_default_views() {
 
   /* Display: About Author */
   $handler = $view->new_display('block', 'About Author', 'about_author_block');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'About the Author';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Content authored */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
