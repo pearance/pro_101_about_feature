@@ -212,11 +212,11 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['picture']['alter']['html'] = 0;
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['picture']['empty'] = '[picture]';
   $handler->display->display_options['fields']['picture']['hide_empty'] = 0;
   $handler->display->display_options['fields']['picture']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['picture']['hide_alter_empty'] = 0;
   $handler->display->display_options['fields']['picture']['link_photo_to_profile'] = 1;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
   /* Field: Realname: Real name */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
