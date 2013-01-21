@@ -159,6 +159,7 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['picture']['empty'] = '[picture]';
   $handler->display->display_options['fields']['picture']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
   /* Field: Realname: Real name */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
