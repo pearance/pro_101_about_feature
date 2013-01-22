@@ -137,6 +137,8 @@ function pro_101_about_feature_views_default_views() {
   /* Display: Pro Team */
   $handler = $view->new_display('block', 'Pro Team', 'pro_team_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'pro-team';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['block_description'] = 'Pro Team';
 
@@ -144,6 +146,8 @@ function pro_101_about_feature_views_default_views() {
   $handler = $view->new_display('block', 'About Author', 'about_author_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'About the Author';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'about-author';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Content authored */
