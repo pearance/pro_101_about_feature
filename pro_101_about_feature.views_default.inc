@@ -53,14 +53,9 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['inline'] = array(
-    'name' => 'name',
+    'realname' => 'realname',
+    'field_title' => 'field_title',
   );
-  /* Field: User: Picture */
-  $handler->display->display_options['fields']['picture']['id'] = 'picture';
-  $handler->display->display_options['fields']['picture']['table'] = 'users';
-  $handler->display->display_options['fields']['picture']['field'] = 'picture';
-  $handler->display->display_options['fields']['picture']['label'] = '';
-  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   /* Field: User: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'users';
@@ -71,6 +66,28 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'Edit Profile';
+  /* Field: Configure Block Link */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Configure Block Link';
+  $handler->display->display_options['fields']['nothing']['label'] = '';
+  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Configure Block';
+  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'admin/structure/block/manage/views/Professionals-pro_team_block/configure';
+  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: User: User Image */
+  $handler->display->display_options['fields']['field_user_image']['id'] = 'field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['table'] = 'field_data_field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['field'] = 'field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['label'] = '';
+  $handler->display->display_options['fields']['field_user_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_user_image']['settings'] = array(
+    'image_style' => 'narrow-image',
+    'image_link' => 'content',
+  );
   /* Field: Realname: Real name */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
@@ -83,28 +100,29 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['field_title']['field'] = 'field_title';
   $handler->display->display_options['fields']['field_title']['label'] = '';
   $handler->display->display_options['fields']['field_title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_title']['field_api_classes'] = TRUE;
-  /* Field: User: Professional Biography */
+  /* Field: User: Biography */
   $handler->display->display_options['fields']['field_pro_bio']['id'] = 'field_pro_bio';
   $handler->display->display_options['fields']['field_pro_bio']['table'] = 'field_data_field_pro_bio';
   $handler->display->display_options['fields']['field_pro_bio']['field'] = 'field_pro_bio';
   $handler->display->display_options['fields']['field_pro_bio']['label'] = '';
+  $handler->display->display_options['fields']['field_pro_bio']['alter']['max_length'] = '300';
+  $handler->display->display_options['fields']['field_pro_bio']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_pro_bio']['alter']['more_link_text'] = 'More';
+  $handler->display->display_options['fields']['field_pro_bio']['alter']['more_link_path'] = 'people/[realname]';
+  $handler->display->display_options['fields']['field_pro_bio']['alter']['html'] = TRUE;
   $handler->display->display_options['fields']['field_pro_bio']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_pro_bio']['type'] = 'text_trimmed';
+  $handler->display->display_options['fields']['field_pro_bio']['type'] = 'smart_trim_format';
   $handler->display->display_options['fields']['field_pro_bio']['settings'] = array(
-    'trim_length' => '400',
+    'trim_length' => '300',
+    'trim_type' => 'chars',
+    'trim_suffix' => '...',
+    'more_link' => '1',
+    'more_text' => 'More',
+    'summary_handler' => 'full',
+    'trim_options' => array(
+      'text' => 'text',
+    ),
   );
-  /* Field: Edit Title */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Edit Title';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = 'Configure Block';
-  $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['path'] = 'admin/structure/block/manage/views/Professionals-pro_team_block/configure';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   /* Field: Global: Contextual Links */
   $handler->display->display_options['fields']['contextual_links']['id'] = 'contextual_links';
   $handler->display->display_options['fields']['contextual_links']['table'] = 'views';
@@ -140,6 +158,12 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'pro-team';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['block_description'] = 'Pro Team';
 
   /* Display: About Author */
@@ -155,15 +179,17 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'users';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: Picture */
-  $handler->display->display_options['fields']['picture']['id'] = 'picture';
-  $handler->display->display_options['fields']['picture']['table'] = 'users';
-  $handler->display->display_options['fields']['picture']['field'] = 'picture';
-  $handler->display->display_options['fields']['picture']['label'] = '';
-  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['picture']['empty'] = '[picture]';
-  $handler->display->display_options['fields']['picture']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['picture']['image_style'] = 'thumbnail';
+  /* Field: User: User Image */
+  $handler->display->display_options['fields']['field_user_image']['id'] = 'field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['table'] = 'field_data_field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['field'] = 'field_user_image';
+  $handler->display->display_options['fields']['field_user_image']['label'] = '';
+  $handler->display->display_options['fields']['field_user_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_user_image']['settings'] = array(
+    'image_style' => 'thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Realname: Real name */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
@@ -176,12 +202,24 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['fields']['field_title']['field'] = 'field_title';
   $handler->display->display_options['fields']['field_title']['label'] = '';
   $handler->display->display_options['fields']['field_title']['element_label_colon'] = FALSE;
-  /* Field: User: Biographical Summary */
-  $handler->display->display_options['fields']['field_bio_summary']['id'] = 'field_bio_summary';
-  $handler->display->display_options['fields']['field_bio_summary']['table'] = 'field_data_field_bio_summary';
-  $handler->display->display_options['fields']['field_bio_summary']['field'] = 'field_bio_summary';
-  $handler->display->display_options['fields']['field_bio_summary']['label'] = '';
-  $handler->display->display_options['fields']['field_bio_summary']['element_label_colon'] = FALSE;
+  /* Field: User: Biography */
+  $handler->display->display_options['fields']['field_pro_bio']['id'] = 'field_pro_bio';
+  $handler->display->display_options['fields']['field_pro_bio']['table'] = 'field_data_field_pro_bio';
+  $handler->display->display_options['fields']['field_pro_bio']['field'] = 'field_pro_bio';
+  $handler->display->display_options['fields']['field_pro_bio']['label'] = '';
+  $handler->display->display_options['fields']['field_pro_bio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_pro_bio']['type'] = 'smart_trim_format';
+  $handler->display->display_options['fields']['field_pro_bio']['settings'] = array(
+    'trim_length' => '300',
+    'trim_type' => 'chars',
+    'trim_suffix' => '...',
+    'more_link' => '1',
+    'more_text' => 'More',
+    'summary_handler' => 'full',
+    'trim_options' => array(
+      'text' => 'text',
+    ),
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -207,6 +245,7 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  $handler->display->display_options['block_description'] = 'About Author';
   $export['Professionals'] = $view;
 
   return $export;
