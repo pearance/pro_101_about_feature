@@ -152,9 +152,10 @@ function pro_101_about_feature_views_default_views() {
     96220023 => '96220023',
   );
 
-  /* Display: Pro Team */
-  $handler = $view->new_display('block', 'Pro Team', 'pro_team_block');
+  /* Display: The Team */
+  $handler = $view->new_display('block', 'The Team', 'pro_team_block');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'The Team';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'pro-team';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
