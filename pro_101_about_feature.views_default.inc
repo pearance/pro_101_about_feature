@@ -175,17 +175,12 @@ function pro_101_about_feature_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'users';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: User Image */
-  $handler->display->display_options['fields']['field_user_image']['id'] = 'field_user_image';
-  $handler->display->display_options['fields']['field_user_image']['table'] = 'field_data_field_user_image';
-  $handler->display->display_options['fields']['field_user_image']['field'] = 'field_user_image';
-  $handler->display->display_options['fields']['field_user_image']['label'] = '';
-  $handler->display->display_options['fields']['field_user_image']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_user_image']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_user_image']['settings'] = array(
-    'image_style' => 'thumbnail',
-    'image_link' => 'content',
-  );
+  /* Field: User: Picture */
+  $handler->display->display_options['fields']['picture']['id'] = 'picture';
+  $handler->display->display_options['fields']['picture']['table'] = 'users';
+  $handler->display->display_options['fields']['picture']['field'] = 'picture';
+  $handler->display->display_options['fields']['picture']['label'] = '';
+  $handler->display->display_options['fields']['picture']['element_label_colon'] = FALSE;
   /* Field: Realname: Real name */
   $handler->display->display_options['fields']['realname']['id'] = 'realname';
   $handler->display->display_options['fields']['realname']['table'] = 'realname';
